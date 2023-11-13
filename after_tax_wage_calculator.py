@@ -237,7 +237,8 @@ class SeparateAfterTaxWageCalculator:
         :return: 税后工资
         """
         tax_ratio = cls.get_tax_ratio(taxable_wage)
-        return taxable_wage * tax_ratio.ratio - tax_ratio.coupon
+        tax_amount = taxable_wage * tax_ratio.ratio - tax_ratio.coupon
+        return taxable_wage - tax_amount
 
     @classmethod
     def get_tax_ratio(cls, taxable_wage):
